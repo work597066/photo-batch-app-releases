@@ -1,0 +1,8 @@
+{
+  "versionCode": 3,
+  "versionName": "0.1.2-beta3-debug",
+  "applicationId": "tw.ai_lab.screenshotbatch.debug",
+  "apkUrl": "https://raw.githubusercontent.com/work597066/photo-batch-app-releases/main/PhotoBatch-0.1.2-beta3-debug.apk",
+  "sha256": "eb30c131911289c084b89528fc82650d046df8068590242afd179e440ebe5503",
+  "releaseNotes": "App 啟動時自動檢查更新；有新版時由使用者選擇下載；下載後驗證 SHA-256、套件名稱與版次，再交由 Android 安裝器確認。"
+}
