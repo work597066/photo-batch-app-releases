@@ -1,7 +1,9 @@
-# Android 照片批次整理 App
+# 圖知 Android 照片整理 App
 
-最新測試版：**0.1.3-beta4（第 4 版）**。此版使用與第 3 版相同的 Android 簽章，可直接升級。
+最新測試版：**0.1.4-beta5（第 5 版）**。
 
-- [下載第 4 版 APK](https://raw.githubusercontent.com/work597066/photo-batch-app-releases/main/PhotoBatch-0.1.3-beta4-debug.apk)
-- [第 4 版內容](RELEASE_NOTES.md)
+- [下載 Beta5 APK](https://raw.githubusercontent.com/work597066/photo-batch-app-releases/main/PhotoBatch-0.1.4-beta5-debug.apk)
+- [Beta5 更新內容](RELEASE_NOTES.md)
 - [自動更新資訊](https://raw.githubusercontent.com/work597066/photo-batch-app-releases/main/update.json)
+
+此版與前一版使用相同 Android 簽章，可直接升級。實機的多照片及多螢幕尺寸操作仍需安裝後驗收。
