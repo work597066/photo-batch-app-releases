@@ -1,8 +1,8 @@
 # AGENTS.md｜AI 團隊啟動指示與共同交接紀錄
 
-暗號：2026/11/24-A
+文件編號：2026-11-25-005（用於確認時間軸紀錄；後續號碼當日持續更新。）
 
-（暗號由使用者設定。ChatGPT 於 2026-11-24 寫入時誤記為「雙號號測試 11/24 之 A」，2026-11-27 依使用者說明更正。）
+（2026-11-28 更正：這是時間軸文件編號，不是登入或驗證用的祕密口令；同時可作為簡單稽核線索，核對夥伴是否依共同規則查閱並更新紀錄。先前誤稱「暗號」且只從敏感資料角度提醒，未完整理解其稽核用途，現依使用者說明更正。）
 
 ## 1. 文件用途
 
@@ -28,6 +28,9 @@
 首次建立本檔的 Commit：`a36df6d017d0efc08a1981079f0d0eafd7fa3d36`。
 
 本次更新將在 GitHub 回傳新的 Commit 後，才算完成。
+
+### Codex 直接更新 main（2026-11-28 已驗證）
+- **已驗證（附證據）**：Codex 使用 GitHub 連接器直接更新 main 並取得 Commit；證據包括 Beta11 原始碼提交 588a446c8b4dbb0c0c0bc1769420e837a0ead0fe、協作規則提交 95846ac3ffb083f400f8748e31102d144620b46e，以及 Gradle Wrapper 後續提交 776047203efd894b568846efcceb2f2ec9682bc3、0d69baac21ca56e6e85d3332ae2f3c47e4c8d5c8。此結論只代表上述操作已成功，不推定其他平台或工作階段擁有相同權限。
 
 ### Work、Codex 與 Windows
 使用者已明確說明，先前已在 Windows 10 環境啟用 Work 與 Codex，交付 APP 開發任務，並成功將 APK 上傳 GitHub。這是使用者已完成的實際成果；本次對話沒有重新執行 Work/Codex 開發流程。
@@ -159,7 +162,32 @@ README 與 update.json 指向最新測試版 **0.1.10-beta11**，版次碼 11（
 - 某平台成功存取，不代表其他平台也有相同權限。開始依賴某項能力前先確認該工作階段實際可用；無法確認時如實標示，不得寫成已完成。
 
 
-## 5. 建議的任務紀錄格式
+## 5. 任務紀錄與交接規則
+
+### 何時寫、寫在哪裡
+- 任務完成或需要交接：在第 6 節之後新增任務紀錄。
+- 實測出新的能力或限制：更新第 2 節，附日期與證據，並標明把握程度。
+- 發現錯誤：先更正原文，再於第 3 節記下錯誤、原因與修正方式；不能只口頭道歉。
+- 失敗的嘗試也要記錄，說明失敗結果、證據，以及是否已找到可行替代方式。
+
+### 把握程度標記
+每項能力、結果與推論應使用以下其中一種標記，並附證據或出處：
+- **使用者已完成**：使用者明確回報已完成；不可寫成本次由 AI 實測。
+- **已驗證（附證據）**：本方實際操作或檢查成功，列出可核對的檔案、連結、Commit 或測試結果。
+- **有人成功過（附出處）**：有可信的他人實例或文件支持，但本方尚未重現。
+- **推測／尚未驗證**：合理猜測或尚未測試，明確保留不確定性。
+
+把握程度是任務欄位內的標籤，不另增加第 11 個任務欄位。
+
+### 寫入 main 的方式
+- Claude Code：建立分支與 PR；使用者回覆「好」後再合併。
+- Codex：依本 Repository 已驗證的工作方式，直接提交至 main。
+- Claude 聊天端：無法直接寫入時，請 Claude Code 代寫；不可假稱已完成。
+
+### 寫完檢查
+寫入後重新讀取最新檔案，確認內容確實存在、前後一致且沒有把推測寫成事實，並更新文件末尾的「最後更新」日期。規則不清楚時先詢問，不自行猜填。
+
+### 十欄任務紀錄格式
 
 每項任務至少記錄：
 - 任務 ID 與標題
@@ -199,8 +227,21 @@ README 與 update.json 指向最新測試版 **0.1.10-beta11**，版次碼 11（
 - **執行步驟：** 檢查專案檔案；更新來源專案說明；加入忽略本機建置、安裝檔及簽章檔的規則；將 Android 程式碼、設定、資源、測試與 Gradle Wrapper 放入 `android_app/`；在根目錄 README 加入原始碼入口。
 - **狀態：** 已完成。
 - **驗收標準：** GitHub 可瀏覽原始碼；根目錄 README 有入口；APK 與自動更新資訊仍指向 Beta11；私人簽章資料未上傳。
-- **實際結果與證據：** [原始碼資料夾](https://github.com/work597066/photo-batch-app-releases/tree/main/android_app)；[建置說明](https://github.com/work597066/photo-batch-app-releases/blob/main/android_app/README.md)；[提交 588a446](https://github.com/work597066/photo-batch-app-releases/commit/588a446c8b4dbb0c0c0bc1769420e837a0ead0fe)。確認 `update.json` 仍為 versionCode 11；排除本機簽章設定與金鑰、`.gradle/`、`build/`、`local.properties` 及 APK 檔。
+- **實際結果與證據：** **已驗證（附證據）**：[原始碼資料夾](https://github.com/work597066/photo-batch-app-releases/tree/main/android_app)；[建置說明](https://github.com/work597066/photo-batch-app-releases/blob/main/android_app/README.md)；[提交 588a446](https://github.com/work597066/photo-batch-app-releases/commit/588a446c8b4dbb0c0c0bc1769420e837a0ead0fe)。確認 update.json 仍為 versionCode 11；排除本機簽章設定與金鑰、.gradle/、build/、local.properties 及 APK 檔。上傳時 GitHub 建樹操作拒收 Unix gradlew（無效 blob）；後改用 Contents API 成功補入 android_app/gradlew，並更新 README 說明 Windows 與 macOS/Linux 的 wrapper 用法；證據：[Wrapper 修復提交](https://github.com/work597066/photo-batch-app-releases/commit/776047203efd894b568846efcceb2f2ec9682bc3)、[README 更新提交](https://github.com/work597066/photo-batch-app-releases/commit/0d69baac21ca56e6e85d3332ae2f3c47e4c8d5c8)。
 - **未解決問題與下一步：** App 實機操作仍由使用者測試並回報。下月規劃「圖知」說明檔與內頁功能鍵設計比稿；參考「抓圖」按鈕比例，代表色可另行搭配，尚未定稿。
+- **最後更新日期：** 2026-11-28。
+
+### 任務紀錄｜AGENTS 共用紀錄規則與時間軸編號更正（2026-11-28）
+
+- **任務 ID 與標題：** AGENTS-RULES-20261128｜建立跨平台共用填寫基準並更正文件編號用途。
+- **提出日期與目標：** 2026-11-28；依使用者提供的聯絡簿規則整理 AGENTS.md，並更正文件編號的描述，保留其時間軸核對與簡單稽核用途。
+- **負責角色：** 使用者提供規則與釐清用途；Codex 更新及回讀核對。
+- **前置資料與相關檔案：** Repository 根目錄 AGENTS.md；使用者指定文件編號 2026-11-25-005，尾碼當日持續更新。
+- **執行步驟：** 更正文件開頭編號欄及用途；加入把握程度標籤、任務記錄位置、失敗紀錄、各夥伴寫入 main 流程和完成後回讀規則；補記 Beta11 原始碼上傳期間 Wrapper 失敗與修復。
+- **狀態：** 已完成。
+- **驗收標準：** 不再把時間軸文件編號稱作祕密口令；保留其核對夥伴是否依共同方式查閱與更新的稽核用途；十欄任務格式維持十欄；能力、失敗、任務與回讀規則均有明確位置。
+- **實際結果與證據：** **已驗證（附證據）**：本次更新 Commit 及回讀結果將在 GitHub 回傳後核對；內容以 main 最新 AGENTS.md 為準。
+- **未解決問題與下一步：** 無；下一件任務依序號更新文件編號，並依本節規則持續紀錄。
 - **最後更新日期：** 2026-11-28。
 
 ---
