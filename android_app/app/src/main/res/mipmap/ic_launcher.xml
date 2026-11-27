@@ -1,0 +1,22 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="512"
+    android:viewportHeight="512">
+    <path
+        android:fillColor="#1681B1"
+        android:pathData="M84,0h344a84,84 0,0 1,84 84v344a84,84 0,0 1,-84 84h-344a84,84 0,0 1,-84 -84v-344a84,84 0,0 1,84 -84z" />
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#66FFFFFF"
+        android:strokeWidth="7"
+        android:pathData="M90,3h332a87,87 0,0 1,87 87v332a87,87 0,0 1,-87 87h-332a87,87 0,0 1,-87 -87v-332a87,87 0,0 1,87 -87z" />
+    <!-- A bold, seal-inspired outline for 圖, sized to stay legible as a launcher icon. -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FFFFFFFF"
+        android:strokeWidth="17"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:pathData="M148,110 L364,110 L364,402 L148,402 Z M204,147 L308,147 L308,219 L204,219 Z M184,250 L328,250 L328,365 L184,365 Z M184,306 L328,306 M256,250 L256,365" />
+</vector>
