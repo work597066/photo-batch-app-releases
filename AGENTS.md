@@ -59,7 +59,7 @@ README 與 update.json 指向最新測試版 **0.1.10-beta11**，版次碼 11（
      - 前提：要在該 claude.ai 專案內開的對話才有這條指示；專案外的對話未測。
      - 未解決：聊天端寫回 GitHub 時，取得寫入權限被系統擋下（2026-11-27 18:49），仍需由 Claude Code 代為寫入。
    - 未驗證：寫入。Claude 聊天端使用「加入 Repository」的工具時被擋，改用一般下載方式才讀到內容；寫回 GitHub 可能需要使用者另外核准。
-4. **Claude Code 的分支限制**：Claude Code 雲端工作階段只能推送到指定的 `claude/...` 分支，需經 PR 合併進 `main` 後，其他夥伴才看得到。
+4. **Claude Code 的分支與合併**：Claude Code 雲端工作階段只能推送到系統指定的工作分支（名稱每次不同，例如 `claude/...`、`ccr-...`），不能直接推送 `main`。內容要經 PR 合併進 `main` 後，其他夥伴才看得到。2026-11-27 實測：Claude Code 可以自己建立 PR 並合併（PR #7、#8、#9），合併前會先請使用者回「好」。
 5. **Claude 的 GitHub 寫入權限**：2026-11-27 初次測試時，Claude 只能讀取本 Repository，寫入（git push、建立分支）都被拒（403）。使用者隨後安裝 Claude GitHub App，設定為「所有儲存庫」、讀寫。之後的推送結果以本檔提交紀錄為證。
 6. **邀請 GitHub 協作者**：Claude Code 查詢協作者名單被拒（403 Resource not accessible by integration），也沒有寄送邀請的工具。邀請真人協作者須由使用者在 GitHub 網頁操作：Settings → Collaborators → Add people。網址：https://github.com/work597066/photo-batch-app-releases/settings/access
 
