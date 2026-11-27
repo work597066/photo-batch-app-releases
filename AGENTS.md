@@ -59,6 +59,12 @@ README 與 update.json 指向最新測試版 **0.1.10-beta11**，版次碼 11（
 5. **Claude 的 GitHub 寫入權限**：2026-11-27 初次測試時，Claude 只能讀取本 Repository，寫入（git push、建立分支）都被拒（403）。使用者隨後安裝 Claude GitHub App，設定為「所有儲存庫」、讀寫。之後的推送結果以本檔提交紀錄為證。
 6. **邀請 GitHub 協作者**：Claude Code 查詢協作者名單被拒（403 Resource not accessible by integration），也沒有寄送邀請的工具。邀請真人協作者須由使用者在 GitHub 網頁操作：Settings → Collaborators → Add people。網址：https://github.com/work597066/photo-batch-app-releases/settings/access
 
+### 與使用者互動的規則（2026-11-27 使用者確認）
+1. **使用者多半不方便打字**，常只能用語音輸入、複製和貼上。
+2. **需要使用者轉貼到別處的內容，一律放進單獨的程式碼框**（有一鍵複製按鈕），一次只放一塊，不要求使用者自己打字。
+3. **AI 能自己做的就自己做**（讀取、寫入、推送、開 PR），不叫使用者去 GitHub 操作。
+4. **需要確認的事，設計成使用者只要回「好／不要」**。步驟寫短。
+
 ## 3. 2026-11-24 參謀工作檢討
 
 ### 發生的問題
