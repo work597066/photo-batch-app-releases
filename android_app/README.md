@@ -11,7 +11,7 @@
 - Android SDK Platform 36、Build Tools 36
 - Gradle 8.13（可使用專案內的 Gradle Wrapper）
 
-在 Android Studio 開啟此資料夾並同步 Gradle，或在 Windows 執行 `gradlew.bat assembleDebug` 建置測試版。APK 會輸出到 `app/build/outputs/apk/debug/`。
+在 Android Studio 開啟此資料夾並同步 Gradle；Windows 執行 `gradlew.bat assembleDebug`，macOS／Linux 執行 `sh gradlew assembleDebug` 建置測試版。APK 會輸出到 `app/build/outputs/apk/debug/`。
 
 原始碼不包含簽章金鑰。從原始碼自行建置的 APK 會使用建置電腦上的 Debug 簽章，未必能直接升級已安裝的公開測試版；發布升級版必須使用相同的私人簽章金鑰。請勿將金鑰或密碼上傳至 GitHub。
 
