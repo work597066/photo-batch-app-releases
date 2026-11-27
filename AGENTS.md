@@ -86,7 +86,7 @@ README 與 update.json 指向最新測試版 **0.1.10-beta11**，版次碼 11（
     - 把「字幕Claude」加入「受信任的資料夾」後，雲端仍顯示 `not_available`（同第 8 條已知問題）。
 
 ### 2026-11-27 任務：知識衛星課程擷取字幕（sat.cool/classroom/42）
-- 結果：**由 Grok Bot 完成**（Grok Bot 在雲端用擷取音訊程式抓下音訊檔，再用 Buzz 轉成字幕）。（更正：原記為「Grok」，實為 Grok Bot；Claude Code，2026-11-28，依使用者說明）
+- 結果：**Claude 系列未完成；~~Grok~~ Grok Bot 完成**（~~Grok~~ Grok Bot 在雲端用擷取音訊程式抓下音訊檔，再用 Buzz 轉成字幕）。（更正：Claude Code，2026-11-28，依使用者說明）
 - 已知限制：要登入已購課帳號；一個帳號一次只能一台設備登入；自動開啟的瀏覽器會被 CloudFront 擋（403）；字幕燒在畫面裡（無字幕檔）；影片未加密。
 - 走不通的路（不要再叫使用者重試）：雲端直接連 sat.cool（網路擋＋沒有登入）；Remote Control 連使用者電腦（`not_available`）；電腦版 Claude 操作已登入的 Chrome（使用者實測不行）。
 - 已做好的工具（PR #7，已合併進 `main`）：`tools/subtitle-capture/`（瀏覽器內截硬字幕，需在已登入分頁執行）、`tools/transcribe/`（音訊轉逐字稿）。
@@ -204,7 +204,8 @@ README 與 update.json 指向最新測試版 **0.1.10-beta11**，版次碼 11（
 ### 5.3 角色名稱
 使用者、ChatGPT、Work、Codex、Claude（聊天端）、Claude Code、Grok App、Grok Bot。
 - **Grok App**：沒有跨對話記憶，不能寫入 GitHub（使用者說明，2026-11-28）。
-- **Grok Bot**：與 Grok App 是不同角色；能力待補。
+- **Grok Bot**：與 Grok App 是不同產品、分開計費（有人成功過：xAI 官方 FAQ 的搜尋摘要，https://docs.x.ai/grok-bot/faq ）。官方定義為「一個持續存在、有名字的 AI 隊友」，有 Windows／macOS／Linux 電腦版與手機版，同帳號跨裝置同步（同出處）。2026-11-27 完成知識衛星課程字幕任務（已驗證（使用者完成））。
+  - 尚未驗證：跨對話記憶、能否寫入 GitHub。Claude Code 讀取 docs.x.ai 原文失敗（雲端網路解析不到該網址，2026-11-28），以上僅來自搜尋摘要。
 
 ## 6. 目前結論與下一步
 
