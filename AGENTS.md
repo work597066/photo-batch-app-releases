@@ -64,7 +64,7 @@ README 與 update.json 指向最新測試版 **0.1.10-beta11**，版次碼 11（
 6. **邀請 GitHub 協作者**：Claude Code 查詢協作者名單被拒（403 Resource not accessible by integration），也沒有寄送邀請的工具。邀請真人協作者須由使用者在 GitHub 網頁操作：Settings → Collaborators → Add people。網址：https://github.com/work597066/photo-batch-app-releases/settings/access
 
 7. **手機不能核准環境變更**：Claude Code 申請建立／修改雲端環境（例如放行網址）時，手機 App 只會顯示「無法在此核准，請在電腦上審查」和「拒絕」按鈕，必須在電腦上按允許（2026-11-27 實測）。
-8. **雲端連使用者電腦（Remote Control）**：使用者在電腦版 Claude 設定 → Code → Remote Control 開啟「允許手機和 claude.ai 在此啟動工作階段」並加入資料夾（試過 Desktop、字幕Claude）後，雲端仍看到資料夾但顯示 `not_available`，連不上，原因不明（推測為 Windows 版 Claude 版本限制）。Windows「內容 → 共用」的網路共用與此無關，不要叫使用者設定。
+8. **雲端連使用者電腦（Remote Control）**：使用者在電腦版 Claude 設定 → Code → Remote Control 開啟「允許手機和 claude.ai 在此啟動工作階段」並加入資料夾（試過 Desktop、字幕Claude）後，雲端仍看到資料夾但顯示 `not_available`，連不上。**查證結果（2026-11-27）：這是 Anthropic 尚未修好的已知問題，不是使用者設定錯誤**：GitHub anthropics/claude-code Issue #108825（Windows，所有資料夾都 `not_available`，連新建的普通資料夾也一樣；重開 App、重新加資料夾、更新版本都無效）、#106592（Linux／macOS 同樣症狀，除錯紀錄顯示電腦端決定「不提供」資料夾給雲端）。兩則皆未關閉、無官方回應、無確認有效的解法。**在官方修好前不要再叫使用者重試或改設定。**Windows「內容 → 共用」的網路共用與此無關，不要叫使用者設定。
 9. **雲端語音轉逐字稿可用**：已在個人環境「photo-batch-app-releases」放行 Hugging Face 網址（huggingface.co、us.aws.cdn.hf.co、cas-server.xethub.hf.co 等），可用 `tools/transcribe/` 把音訊轉成繁體中文逐字稿。實測台灣華語 49 秒、9 秒轉完、字元相似度 94.2%。
 
 ### 2026-11-27 任務：知識衛星課程擷取字幕（sat.cool/classroom/42）
