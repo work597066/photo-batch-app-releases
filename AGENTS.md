@@ -80,7 +80,7 @@ README 與 update.json 指向最新測試版 **0.1.10-beta11**，版次碼 11（
     - 把「字幕Claude」加入「受信任的資料夾」後，雲端仍顯示 `not_available`（同第 8 條已知問題）。
 
 ### 2026-11-27 任務：知識衛星課程擷取字幕（sat.cool/classroom/42）
-- 結果：**Claude 系列未完成；Grok 完成**（Grok 在雲端用擷取音訊程式抓下音訊檔，再用 Buzz 轉成字幕）。
+- 結果：**由 Grok Bot 完成**（Grok Bot 在雲端用擷取音訊程式抓下音訊檔，再用 Buzz 轉成字幕）。（更正：原記為「Grok」，實為 Grok Bot；Claude Code，2026-11-28，依使用者說明）
 - 已知限制：要登入已購課帳號；一個帳號一次只能一台設備登入；自動開啟的瀏覽器會被 CloudFront 擋（403）；字幕燒在畫面裡（無字幕檔）；影片未加密。
 - 走不通的路（不要再叫使用者重試）：雲端直接連 sat.cool（網路擋＋沒有登入）；Remote Control 連使用者電腦（`not_available`）；電腦版 Claude 操作已登入的 Chrome（使用者實測不行）。
 - 已做好的工具（PR #7，已合併進 `main`）：`tools/subtitle-capture/`（瀏覽器內截硬字幕，需在已登入分頁執行）、`tools/transcribe/`（音訊轉逐字稿）。
