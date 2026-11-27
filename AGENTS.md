@@ -63,6 +63,29 @@ README 與 update.json 指向最新測試版 **0.1.10-beta11**，版次碼 11（
 5. **Claude 的 GitHub 寫入權限**：2026-11-27 初次測試時，Claude 只能讀取本 Repository，寫入（git push、建立分支）都被拒（403）。使用者隨後安裝 Claude GitHub App，設定為「所有儲存庫」、讀寫。之後的推送結果以本檔提交紀錄為證。
 6. **邀請 GitHub 協作者**：Claude Code 查詢協作者名單被拒（403 Resource not accessible by integration），也沒有寄送邀請的工具。邀請真人協作者須由使用者在 GitHub 網頁操作：Settings → Collaborators → Add people。網址：https://github.com/work597066/photo-batch-app-releases/settings/access
 
+7. **手機不能核准環境變更**：Claude Code 申請建立／修改雲端環境（例如放行網址）時，手機 App 只會顯示「無法在此核准，請在電腦上審查」和「拒絕」按鈕，必須在電腦上按允許（2026-11-27 實測）。
+8. **雲端連使用者電腦（Remote Control）**：使用者在電腦版 Claude 設定 → Code → Remote Control 開啟「允許手機和 claude.ai 在此啟動工作階段」並加入資料夾（試過 Desktop、字幕Claude）後，雲端仍看到資料夾但顯示 `not_available`，連不上，原因不明（推測為 Windows 版 Claude 版本限制）。Windows「內容 → 共用」的網路共用與此無關，不要叫使用者設定。
+9. **雲端語音轉逐字稿可用**：已在個人環境「photo-batch-app-releases」放行 Hugging Face 網址（huggingface.co、us.aws.cdn.hf.co、cas-server.xethub.hf.co 等），可用 `tools/transcribe/` 把音訊轉成繁體中文逐字稿。實測台灣華語 49 秒、9 秒轉完、字元相似度 94.2%。
+
+### 2026-11-27 任務：知識衛星課程擷取字幕（sat.cool/classroom/42）
+- 結果：**Claude 系列未完成；Grok 完成**（Grok 在雲端用擷取音訊程式抓下音訊檔，再用 Buzz 轉成字幕）。
+- 已知限制：要登入已購課帳號；一個帳號一次只能一台設備登入；自動開啟的瀏覽器會被 CloudFront 擋（403）；字幕燒在畫面裡（無字幕檔）；影片未加密。
+- 走不通的路（不要再叫使用者重試）：雲端直接連 sat.cool（網路擋＋沒有登入）；Remote Control 連使用者電腦（`not_available`）；電腦版 Claude 操作已登入的 Chrome（使用者實測不行）。
+- 已做好的工具（PR #7，未合併）：`tools/subtitle-capture/`（瀏覽器內截硬字幕，需在已登入分頁執行）、`tools/transcribe/`（音訊轉逐字稿）。
+- 下一步：使用者有音訊檔時直接傳給 Claude Code，由它轉逐字稿並整理重點導讀。
+
+### 2026-11-27 檢討（Claude Code、Claude 聊天端）
+**錯誤：寧可把責任丟給另一位夥伴或使用者，也不先用自己手上已有的能力處理。**
+- 一路叫使用者按 F12 貼程式、加資料夾、改開電腦版 Claude、轉貼給聊天端，但使用者要的是不必自己動手。
+- 使用者說「我在電腦前面」時，沒有立刻重送放行網路的申請（手機不能核准、電腦可以）。
+- 在「截畫面字幕」這條路上反覆嘗試，沒有及早改走「音訊轉文字」。
+- 太晚明說「需要登入帳號這一步，雲端做不到」。
+
+**修正原則：**
+1. 先用自己手上的工具實際動手試；一條路走不通就立刻換方法，不推給其他夥伴，也不推回使用者。
+2. 做不到的部分第一時間講清楚，不讓使用者白試好幾輪。
+3. 需要使用者核准的事，在使用者人在電腦前時立刻送出，讓他只要按一次允許。
+
 ### 與使用者互動的規則（2026-11-27 使用者確認）
 1. **使用者多半不方便打字**，常只能用語音輸入、複製和貼上。
 2. **需要使用者轉貼到別處的內容，一律放進單獨的程式碼框**（有一鍵複製按鈕），一次只放一塊，不要求使用者自己打字。
