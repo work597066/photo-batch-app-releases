@@ -149,6 +149,7 @@ README 與 update.json 指向最新測試版 **0.1.10-beta11**，版次碼 11（
 4. 對照使用者這次的新指示，只更新有變動的部分。
 5. 先處理可以直接執行的工作；只有遇到真正缺少且無法查得的必要資訊，才向使用者詢問。
 6. 完成操作後，更新紀錄並回報可驗證的結果、連結或 Commit。
+7. **回寫共享進度（使用者指示，2026-11-28）**：在本 Repository 執行的開發、研究或發布工作，完成或需要交接時，依第 5 節格式更新 `AGENTS.md`；記錄已完成、進行中、待處理、驗收證據及下一步。若欄位或填寫規則確有歧義，先向使用者提出具體問題，不自行猜填。
 
 **重要限制：**本 `AGENTS.md` 存在 GitHub，不代表每一段新對話會自動讀取它。只有在該對話具備 GitHub 連線／工具權限，且啟動流程或專案指示明確要求先讀取時，才能可靠執行。若當下無法存取，應坦白說明，不能假稱已讀取。
 
@@ -183,5 +184,18 @@ README 與 update.json 指向最新測試版 **0.1.10-beta11**，版次碼 11（
 ### 下一步建議
 先確認現有 Repository 是否適合兼作交接資料庫；若它目前只負責 APK 發布，應評估在同一 Repository 增設獨立的 `handoff/` 或 `project-log/` 目錄，避免把工作管理文件與 APK 發布資訊混在根目錄。正式改動前先盤點 Work、Codex 現有讀寫方式及使用者希望的資料邊界。
 
+### 任務紀錄｜圖知 Beta11 原始碼公開（2026-11-28）
+
+- **任務 ID 與標題：** TUZHI-SOURCE-BETA11-20261128｜公開圖知 Beta11 Android 原始碼。
+- **提出日期與目標：** 2026-11-28；將本機 Beta11 原始碼放入既有 GitHub 發布儲存庫，並保留 APK 下載及更新資訊。
+- **負責角色：** 使用者確認目標與產品方向；Codex 檢查、整理、提交及核對。
+- **前置資料：** 本機專案 `D:\AI_LAB\06_PROJECTS\Android_Screenshot_Batch\android_app`；GitHub `work597066/photo-batch-app-releases`。
+- **執行步驟：** 檢查專案檔案；更新來源專案說明；加入忽略本機建置、安裝檔及簽章檔的規則；將 Android 程式碼、設定、資源、測試與 Gradle Wrapper 放入 `android_app/`；在根目錄 README 加入原始碼入口。
+- **狀態：** 已完成。
+- **驗收標準：** GitHub 可瀏覽原始碼；根目錄 README 有入口；APK 與自動更新資訊仍指向 Beta11；私人簽章資料未上傳。
+- **實際結果與證據：** [原始碼資料夾](https://github.com/work597066/photo-batch-app-releases/tree/main/android_app)；[建置說明](https://github.com/work597066/photo-batch-app-releases/blob/main/android_app/README.md)；[提交 588a446](https://github.com/work597066/photo-batch-app-releases/commit/588a446c8b4dbb0c0c0bc1769420e837a0ead0fe)。確認 `update.json` 仍為 versionCode 11；排除本機簽章設定與金鑰、`.gradle/`、`build/`、`local.properties` 及 APK 檔。
+- **未解決問題與下一步：** App 實機操作仍由使用者測試並回報。下月規劃「圖知」說明檔與內頁功能鍵設計比稿；參考「抓圖」按鈕比例，代表色可另行搭配，尚未定稿。
+- **最後更新日期：** 2026-11-28。
+
 ---
-最後更新：2026-11-27
+最後更新：2026-11-28
