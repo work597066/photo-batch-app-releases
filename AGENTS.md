@@ -68,11 +68,14 @@ README 與 update.json 指向最新測試版 **0.1.10-beta11**，版次碼 11（
    - **追蹤備註：每月檢查一次 #108825、#106592 的狀態**（是否關閉、有無官方回應或有效解法），結果記在這裡。下次檢查：2026-12-27。上次檢查：2026-11-27（兩則皆未關閉、無官方回應）。Windows「內容 → 共用」的網路共用與此無關，不要叫使用者設定。
 9. **雲端語音轉逐字稿可用**：已在個人環境「photo-batch-app-releases」放行 Hugging Face 網址（huggingface.co、us.aws.cdn.hf.co、cas-server.xethub.hf.co 等），可用 `tools/transcribe/` 把音訊轉成繁體中文逐字稿。實測台灣華語 49 秒、9 秒轉完、字元相似度 94.2%。
 
+10. **電腦版 Claude 聊天可讀寫本機資料夾（2026-11-27 實測）**：在電腦版 Claude 的聊天中，Claude 讀到「字幕Claude」資料夾內容、寫入測試檔 `claude_rw_test.txt` 並讀回，內容一致。限制（Claude 自述）：只能碰使用者選的那個資料夾，不能在電腦上執行程式。對照：雲端 Claude Code 的「新增資料夾」選項是灰色，標示「僅限本機工作階段使用」。
+    - 待驗證：電腦版 Claude 的**內建瀏覽器**已登入 sat.cool 並開啟課程（截圖為證）；它能否操作已登入頁面或取得音訊，尚未測試（先前測的是 Chrome，不是內建瀏覽器）。
+
 ### 2026-11-27 任務：知識衛星課程擷取字幕（sat.cool/classroom/42）
 - 結果：**Claude 系列未完成；Grok 完成**（Grok 在雲端用擷取音訊程式抓下音訊檔，再用 Buzz 轉成字幕）。
 - 已知限制：要登入已購課帳號；一個帳號一次只能一台設備登入；自動開啟的瀏覽器會被 CloudFront 擋（403）；字幕燒在畫面裡（無字幕檔）；影片未加密。
 - 走不通的路（不要再叫使用者重試）：雲端直接連 sat.cool（網路擋＋沒有登入）；Remote Control 連使用者電腦（`not_available`）；電腦版 Claude 操作已登入的 Chrome（使用者實測不行）。
-- 已做好的工具（PR #7，未合併）：`tools/subtitle-capture/`（瀏覽器內截硬字幕，需在已登入分頁執行）、`tools/transcribe/`（音訊轉逐字稿）。
+- 已做好的工具（PR #7，已合併進 `main`）：`tools/subtitle-capture/`（瀏覽器內截硬字幕，需在已登入分頁執行）、`tools/transcribe/`（音訊轉逐字稿）。
 - 下一步：使用者有音訊檔時直接傳給 Claude Code，由它轉逐字稿並整理重點導讀。
 
 ### 2026-11-27 檢討（Claude Code、Claude 聊天端）
