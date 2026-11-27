@@ -33,14 +33,21 @@
 因此，不得再把 Windows 11 當成啟用或測試 Work/Codex 的必要前提，也不得要求使用者重新證明已完成的操作。
 
 ### APP 發布資料
-目前 Repository 根目錄可讀到：
-- `PhotoBatch-0.1.2-beta3-debug.apk`
-- `PhotoBatch-0.1.3-beta4-debug.apk`
+2026-11-27 Claude Code 讀取 Repository 根目錄，可見：
+- `PhotoBatch-0.1.2-beta3-debug.apk` 至 `PhotoBatch-0.1.10-beta11-debug.apk`（共 9 個 APK）
 - `README.md`
 - `RELEASE_NOTES.md`
 - `update.json`
 
-README 與更新資訊指向最新測試版 0.1.3-beta4，版次碼 4。這是本次讀取時看到的內容；未重新測試 APK 安裝或執行。
+README 與 update.json 指向最新測試版 **0.1.10-beta11**，版次碼 11（APP 名稱：圖知）。這是讀取時看到的內容；未重新測試 APK 安裝或執行。
+
+### Claude 與 Claude Code（2026-11-27 實測）
+1. **對話不互通**：Claude（claude.ai 聊天）與 Claude Code 是各自獨立的對話，彼此看不到對方的問答。兩邊共用的記憶只有本 Repository；結論必須寫進本檔（或日後的 `handoff/` 目錄）並合併進 `main`，另一邊才讀得到。
+2. **Claude Code 會自動讀取本檔**：Claude Code 在本 Repository 開工時，本 `AGENTS.md` 已自動載入其指示，無須使用者提醒。
+3. **Claude 聊天端尚未驗證**：需接上 GitHub，並在專案指示中明確要求「開始前先讀 `AGENTS.md`」。
+4. **Claude Code 的分支限制**：Claude Code 雲端工作階段只能推送到指定的 `claude/...` 分支，需經 PR 合併進 `main` 後，其他夥伴才看得到。
+5. **Claude 的 GitHub 寫入權限**：2026-11-27 初次測試時，Claude 只能讀取本 Repository，寫入（git push、建立分支）都被拒（403）。使用者隨後安裝 Claude GitHub App，設定為「所有儲存庫」、讀寫。之後的推送結果以本檔提交紀錄為證。
+6. **邀請 GitHub 協作者**：Claude Code 查詢協作者名單被拒（403 Resource not accessible by integration），也沒有寄送邀請的工具。邀請真人協作者須由使用者在 GitHub 網頁操作：Settings → Collaborators → Add people。網址：https://github.com/work597066/photo-batch-app-releases/settings/access
 
 ## 3. 2026-11-24 參謀工作檢討
 
@@ -112,4 +119,4 @@ README 與更新資訊指向最新測試版 0.1.3-beta4，版次碼 4。這是�
 先確認現有 Repository 是否適合兼作交接資料庫；若它目前只負責 APK 發布，應評估在同一 Repository 增設獨立的 `handoff/` 或 `project-log/` 目錄，避免把工作管理文件與 APK 發布資訊混在根目錄。正式改動前先盤點 Work、Codex 現有讀寫方式及使用者希望的資料邊界。
 
 ---
-最後更新：2026-11-24
+最後更新：2026-11-27
